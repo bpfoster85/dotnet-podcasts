@@ -1,6 +1,7 @@
 @description('Location for all resources.')
 param location string = resourceGroup().location
 param imageTag string
+param ACRResourceGroupName string = 'rg-admin'
 
 @secure()
 param administratorLoginPassword string
@@ -103,7 +104,7 @@ resource kubernetesEnv 'Microsoft.App/managedEnvironments@2022-03-01' = {
 // Reference existing ACR to set container app secrets
 resource acr 'Microsoft.ContainerRegistry/registries@2021-09-01' existing = {
   name: acrName
-  scope: resourceGroup()
+  scope: resourceGroup(ACRResourceGroupName)
 }
 
 resource apiContainerApp 'Microsoft.App/containerApps@2022-03-01' = {
