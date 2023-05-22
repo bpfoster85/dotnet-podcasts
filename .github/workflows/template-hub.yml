@@ -24,9 +24,9 @@ jobs:
           azPSVersion: "3.1.0"
           inlineScript: |
             $deploymentName = 'ghactionlistentogether${{ github.sha }}'
-            $resourceGroupName = '${{ secrets.AZURE_RESOURCE_GROUP_NAME }}'
-            $webAppName = 'as-podcast-hub' #'${{ secrets.HUB_WEBAPP_NAME }}'
-            $servicePlanName = '${{ secrets.SERVICE_PLAN_NAME }}'
+            $resourceGroupName = 'rg-podcast'
+            $webAppName = 'as-podcast-hub' 
+            $servicePlanName = 'asp-podcast'
             $storageAccountName = '${{ secrets.STORAGE_NAME }}'
             $administratorLogin = '${{ secrets.PODCASTDB_USER_LOGIN }}'
             $administratorLoginPassword = '${{ secrets.PODCASTDB_USER_PASSWORD }}'
