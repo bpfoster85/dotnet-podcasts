@@ -25,7 +25,7 @@ jobs:
           inlineScript: |
             $deploymentName = 'ghactionlistentogether${{ github.sha }}'
             $resourceGroupName = '${{ secrets.AZURE_RESOURCE_GROUP_NAME }}'
-            $webAppName = '${{ secrets.HUB_WEBAPP_NAME }}'
+            $webAppName = 'as-podcast-hub' #'${{ secrets.HUB_WEBAPP_NAME }}'
             $servicePlanName = '${{ secrets.SERVICE_PLAN_NAME }}'
             $storageAccountName = '${{ secrets.STORAGE_NAME }}'
             $administratorLogin = '${{ secrets.PODCASTDB_USER_LOGIN }}'
@@ -46,5 +46,5 @@ jobs:
       - name: Azure WebApp
         uses: Azure/webapps-deploy@v2
         with:
-          app-name: ${{ secrets.HUB_WEBAPP_NAME }}
+          app-name: 'as-podcast-hub'
           package: hub
