@@ -72,7 +72,7 @@ jobs:
           inlineScript: |
             $deploymentName = 'ghaction${{ github.sha }}'
             $resourceGroupName = 'rg-podcast'            
-            $webAppName = 'as-podcast'
+            $webAppName = 'as-podcast-web'
             $servicePlanName = 'asp-podcast'
             $servicePlanSku = '${{ secrets.SERVICE_PLAN_SKU }}'
             $hubWebAppName = 'as-podcast-hub'
