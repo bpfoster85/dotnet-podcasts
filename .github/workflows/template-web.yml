@@ -79,7 +79,7 @@ jobs:
             $apiName = 'apim-bfoster-podcast'
            
             az deployment group create -n "$($deploymentName)" `
-               --resource-group  "$($resourceGroupName)" `
+               --resource-group  "rg-podcast" `
                --template-file deploy/Web/web.bicep `
                --parameters webAppName="$($webAppName)" servicePlanName="$($servicePlanName)" servicePlanSku="$($servicePlanSku)" hubWebAppName="$($hubWebAppName)" apiName="$($apiName)"                
 
