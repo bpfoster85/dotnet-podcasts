@@ -92,10 +92,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: drop
-          path: web
+          path: src/Web/Server/web:80
 
       - name: Azure WebApp
         uses: Azure/webapps-deploy@v2
         with:
           app-name: 'as-podcast-hub'
-          package: web
+          package: src/Web/Server/web:80
