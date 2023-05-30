@@ -46,7 +46,7 @@ jobs:
         run: dotnet build src/Web/Server --configuration Release
 
       - name: Publish
-        run: dotnet publish --configuration Release src/Web/Server --output web
+        run: dotnet publish --configuration Release src/Web/Server --output web:80
 
       - uses: actions/upload-artifact@v3
         with:
@@ -74,9 +74,9 @@ jobs:
             $resourceGroupName = 'rg-podcast'            
             $webAppName = 'as-podcast-web'
             $servicePlanName = 'asp-podcast'
-            $servicePlanSku = '${{ secrets.SERVICE_PLAN_SKU }}'
+            $servicePlanSku = 'S1'
             $hubWebAppName = 'as-podcast-hub'
-            $apiName = '${{ secrets.API_RESOURCE_NAME }}'
+            $apiName = 'apim-bfoster-podcast'
            
             az deployment group create -n "$($deploymentName)" `
                --resource-group  "$($resourceGroupName)" `
