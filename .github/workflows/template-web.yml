@@ -46,11 +46,11 @@ jobs:
         run: dotnet build src/Web/Server --configuration Release
 
       - name: Publish
-        run: dotnet publish --configuration Release src/Web/Server --output web:80
+        run: dotnet publish --configuration Release src/Web/Server --output src/Web/Server/web:80
       
       - name: Looking at artifact files
         run: |
-          ls -R src/Web/Server/web
+          ls -R src/Web/Server/web:80
         
 
       - uses: actions/upload-artifact@v3
