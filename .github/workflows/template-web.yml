@@ -47,6 +47,11 @@ jobs:
 
       - name: Publish
         run: dotnet publish --configuration Release src/Web/Server --output web:80
+      
+      - name: Looking at artifact files
+        run: |
+          ls -R web
+        
 
       - uses: actions/upload-artifact@v3
         with:
