@@ -56,7 +56,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: drop
-          path: web
+          path: src/Web/Server/web:80
 
   deploy:
     needs: build
