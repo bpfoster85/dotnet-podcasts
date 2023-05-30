@@ -50,7 +50,7 @@ jobs:
       
       - name: Looking at artifact files
         run: |
-          ls -R web
+          ls -R src/Web/Server/web
         
 
       - uses: actions/upload-artifact@v3
