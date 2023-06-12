@@ -36,7 +36,7 @@ jobs:
         with:
           resourceGroupName: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
           template: ./Test/ARMTemplate/template.json
-          parameters: ./Test/ARMTemplate/parameters.json name="lt-podcast" location="$eastus"
+          parameters: ./Test/ARMTemplate/parameters.json name="lt-podcast" location="eastus"
         
       - name: 'Azure Load Testing'
         uses: azure/load-testing@v1
