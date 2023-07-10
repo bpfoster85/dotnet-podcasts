@@ -1,6 +1,10 @@
 name: Branching-create-iac
 on:
-   create
+   create:
+      branches:
+      - 'releases/*'
+      - '!main'
+      - '!testes/*'
 jobs:
   print-tag:
     runs-on: ubuntu-latest
