@@ -19,6 +19,6 @@ jobs:
       steps:
          - name: Calling IAC
            run: |
-            echo ${ env.BRANCH_NAME }
+            echo ${{ env.BRANCH_NAME }}
       
          
