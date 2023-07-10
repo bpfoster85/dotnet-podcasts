@@ -1,4 +1,4 @@
-name: New Branch IAC
+name: Branching-create-iac
 on:
    create
 jobs:
