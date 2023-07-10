@@ -7,9 +7,8 @@ jobs:
       runs-on: ubuntu-latest
       if: ${{contains(github.ref, 'refs/heads/releases/')}}
       steps:
-         - name: Set environment variables
+         - name: Finding Branch Name
            run: |
             # Short name for current branch. For PRs, use target branch (base ref)
-            GIT_BRANCH=${GITHUB_BASE_REF:-${GITHUB_REF#refs/heads/}}
-            echo "GIT_BRANCH=$GIT_BRANCH" >> $GITHUB_ENV
+            echo $(echo $GITHUB_REF | cut -d'/' -f 3)
          
