@@ -1,14 +1,23 @@
 name: Branching-create-iac
 on:
-   create:
+   create
 jobs:
-   creating_iac:
-      name: 'Creating IAC for new branch'
+   Getting_Branch_Name:
+      name: 'Getting Branch Name'
       runs-on: ubuntu-latest
       if: ${{contains(github.ref, 'refs/heads/releases/')}}
       steps:
          - name: Finding Branch Name
            run: |
             # Short name for current branch. For PRs, use target branch (base ref)
-            echo $(echo $GITHUB_REF | cut -d'/' -f 4)
+            "BRANCH_NAME=$(echo $GITHUB_REF | cut -d'/' -f 4)" >> $GITHUB_ENV
+   
+   Setting_IAC:
+      name: 'Setting IAC for new branch'
+      runs-on: ubuntu-latest
+      steps:
+         - name: Calling IAC
+           run: |
+            echo ${{env.BRANCH_NAME }}
+      
          
