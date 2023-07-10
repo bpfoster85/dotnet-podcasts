@@ -1,0 +1,15 @@
+name: New Branch IAC
+on:
+  workflow_run:
+    workflows: ["branch_protection_rule"]
+    types: [created]
+    branches:
+      - 'releases/**'    
+      - '!main'
+      - '!testing/**'  
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the input tag to STDOUT
+        run: echo  Woot Run on build
