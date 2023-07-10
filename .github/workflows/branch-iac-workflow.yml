@@ -1,12 +1,6 @@
 name: New Branch IAC
 on:
-  workflow_run:
-    workflows: ["branch_protection_rule"]
-    types: [created]
-    branches:
-      - 'releases/**'    
-      - '!main'
-      - '!testing/**'  
+   create
 jobs:
   print-tag:
     runs-on: ubuntu-latest
