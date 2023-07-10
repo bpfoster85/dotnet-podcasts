@@ -1,13 +1,11 @@
 name: Branching-create-iac
 on:
    create:
-      branches:
-      - 'releases/*'
-      - '!main'
-      - '!testes/*'
 jobs:
-  print-tag:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo  Woot Run on build
+   creating_iac:
+      name: 'Creating IAC for new branch'
+      runs-on: ubuntu-latest
+      if: ${{contains(github.ref, 'refs/heads/releases/')}}
+      steps:
+         - name: Print the input tag to STDOUT
+           run: echo  Woot Run on build
