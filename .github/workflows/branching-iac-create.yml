@@ -11,13 +11,7 @@ jobs:
            run: |
             # Short name for current branch. For PRs, use target branch (base ref)
             echo "BRANCH_NAME=$(echo $GITHUB_REF | cut -d'/' -f 4)" >> $GITHUB_ENV
-   
-   Setting_IAC:
-      needs: Getting_Branch_Name
-      name: 'Setting IAC for new branch'
-      runs-on: ubuntu-latest
-      steps:
-         - name: Calling IAC
+         - name: 'Setting IAC for new branch'
            run: |
             echo ${{ env.BRANCH_NAME }}
       
