@@ -40,7 +40,7 @@ jobs:
              azPSVersion: "3.1.0"
              inlineScript: |
                az account set --subscription ME-MngEnvMCAP969004-bryanfoster-1
-               DEVCID=$(az devcenter admin devcenter show -n dc-main-2 --query id -o tsv)
+               $DEVCID= $(az devcenter admin devcenter show -n dc-main-2 --query id -o tsv)
                echo $DEVCID
 
          - name: Create DLZ Project
