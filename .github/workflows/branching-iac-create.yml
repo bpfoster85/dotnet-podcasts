@@ -20,6 +20,21 @@ jobs:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
               enable-AzPSSession: true
 
+         - name: Install ADE extension
+           uses: azure/powershell@v1
+           with:
+             azPSVersion: "3.1.0"
+             inlineScript: |
+               az extension add --name devcenter --upgrade
+               
+         - name: Register DevCenter
+           uses: azure/powershell@v1
+           with:
+             azPSVersion: "3.1.0"
+             inlineScript: |
+               az provider register --namespace Microsoft.DevCenter
+
+
          - name: Create DLZ Project
            uses: azure/powershell@v1
            with:
