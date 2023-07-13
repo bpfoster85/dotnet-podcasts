@@ -62,5 +62,5 @@ jobs:
            with:
              azPSVersion: "3.1.0"
              inlineScript: |
-              az devcenter admin project-environment-type create -n Development --project 'newproject-${{ env.BRANCH_NAME }}-dev' --identity-type "SystemAssigned" --roles "{\"${{ secrets.DEVCENTER_OWNER_ROLEID }}\":{}}" --deployment-target-id "/subscriptions/${{ secrets.DEVCENTER_SUBID }}" --status Enabled
+              az devcenter admin project-environment-type create -n Development --project 'newproject-${{ env.BRANCH_NAME }}-dev' --identity-type "SystemAssigned" --roles "{\"8e3af657-a8ff-443c-a75c-2fe8c4bcb635\":{}}" --deployment-target-id "/subscriptions/${{ secrets.DEVCENTER_SUBID }}" --status Enabled
          
