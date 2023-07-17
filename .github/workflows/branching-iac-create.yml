@@ -69,4 +69,4 @@ jobs:
            with:
              azPSVersion: "3.1.0"
              inlineScript: |
-               az devcenter dev environment create --dev-center-name 'dc-main-2' --project-name 'newproject-${{ env.BRANCH_NAME }}-dev' --environment-name 'dev' --environment-type 'dev' --environment-definition-name 'gh-hellow-world' --catalog-name MainProjects
+               az devcenter dev environment create --dev-center-name 'dc-main-2' --project-name 'newproject-${{ env.BRANCH_NAME }}-dev' --environment-name 'dev' --environment-type 'Development' --environment-definition-name 'envdef-${{ env.BRANCH_NAME }}-dev' --catalog-name MainProjects
