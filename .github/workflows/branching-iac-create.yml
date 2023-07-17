@@ -69,4 +69,4 @@ jobs:
            with:
              azPSVersion: "3.1.0"
              inlineScript: |
-               az devcenter dev environment create --dev-center-name 'dc-main-2' --endpoint 'https://54d63bdf-d817-4fa5-a99a-0ec5f32c518c-dc-main-2.westus3.devcenter.azure.com/' --project-name 'newproject-${{ env.BRANCH_NAME }}-dev' --environment-name 'dev' --environment-type 'Development' --environment-definition-name 'envdef-${{ env.BRANCH_NAME }}-dev' --catalog-name MainProjects
+               az devcenter dev environment create --endpoint 'https://54d63bdf-d817-4fa5-a99a-0ec5f32c518c-dc-main-2.westus3.devcenter.azure.com/' --project-name 'newproject-${{ env.BRANCH_NAME }}-dev' --environment-name 'dev' --environment-type 'Development' --environment-definition-name 'envdef-${{ env.BRANCH_NAME }}-dev' --catalog-name MainProjects
