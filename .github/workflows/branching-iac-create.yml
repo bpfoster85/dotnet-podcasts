@@ -57,17 +57,7 @@ jobs:
              inlineScript: |
               az role assignment create --assignee ${{ secrets.DEVCENTER_SERVICEPRINCIPLE_OWNER_ID }} --role "Owner" --scope "/subscriptions/${{ secrets.DEVCENTER_SUBID }}"
          
-         - name: Create devCenter Project
-           uses: azure/powershell@v1
-           with:
-             azPSVersion: "3.1.0"
-             inlineScript: |
-               az devcenter admin project create `
-               --dev-center-id "/subscriptions/${{ secrets.DEVCENTER_SUBID }}/resourceGroups/rg-developer_landing_zone/providers/Microsoft.DevCenter/devcenters/dc-main-2" `
-               --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
-               --description "CICD Project"
-
-         - name: Create Env Type for Project
+         - name: Create Env Type for new Project
            uses: azure/powershell@v1
            with:
              azPSVersion: "3.1.0"
@@ -79,19 +69,22 @@ jobs:
               --environment-type-name "Development" `
               --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
               --state "Enabled" `
-              --resource-group-name "rg-newproject-${{ env.BRANCH_NAME }}-dev" 
+              --resource-group-name "rg-newproject-${{ env.BRANCH_NAME }}-dev" `
 
-         - name: Create devCenter Environment
-           uses: azure/powershell@v1
-           with:
-             azPSVersion: "3.1.0"
-             inlineScript: |
-              az devcenter dev environment create `
-              --endpoint 'https://54d63bdf-d817-4fa5-a99a-0ec5f32c518c-dc-main-2.westus3.devcenter.azure.com/' `
-              --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
-              --catalog-name "MainProjects" `
-              --environment-definition-name "Podcast_Web_App" `
-              --environment-type "Testing"
+         #This will create an deployed Environments of the project and environment type from above.           
+         #- name: Create devCenter Project Env Typ
+         #  uses: azure/powershell@v1
+         #  with:
+         #    azPSVersion: "3.1.0"
+         #    inlineScript: |
+         #      az devcenter dev environment create `
+         #      --endpoint 'https://54d63bdf-d817-4fa5-a99a-0ec5f32c518c-dc-main-2.westus3.devcenter.azure.com/' `
+         #      --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
+         #      --catalog-name "MainProjects" `
+         #      --environment-definition-name "Podcast_Web_App" `
+         #      --environment-type "Testing"     
+
+              
               
          
                
