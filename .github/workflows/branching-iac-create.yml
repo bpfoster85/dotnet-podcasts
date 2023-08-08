@@ -80,6 +80,6 @@ jobs:
                --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
                --catalog-name "MainProjects" `
                --environment-definition-name "Podcast_Web_App" `
-               --environment-type "Testing" `
-               --name "Development"
+               --environment-type "Testing"
+               
                
