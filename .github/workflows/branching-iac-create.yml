@@ -57,18 +57,18 @@ jobs:
              inlineScript: |
               az role assignment create --assignee ${{ secrets.DEVCENTER_SERVICEPRINCIPLE_OWNER_ID }} --role "Owner" --scope "/subscriptions/${{ secrets.DEVCENTER_SUBID }}"
          
-         - name: Set Dev Environment for new Project
-           uses: azure/powershell@v1
-           with:
-             azPSVersion: "3.1.0"
-             inlineScript: |
-              az devcenter admin project-environment-type create `
-              -n '${{ env.BRANCH_NAME }}-Development' `
-              --project 'newproject-${{ env.BRANCH_NAME }}-dev' `
-              --identity-type "SystemAssigned" `
-              --roles "{\"8e3af657-a8ff-443c-a75c-2fe8c4bcb635\":{}}" `
-              --deployment-target-id "/subscriptions/${{ secrets.DEVCENTER_SUBID }}" `
-              --status Enabled
+         #- name: Set Dev Environment for new Project
+         #  uses: azure/powershell@v1
+         #  with:
+         #    azPSVersion: "3.1.0"
+         #    inlineScript: |
+         #     az devcenter admin project-environment-type create `
+         #     -n '${{ env.BRANCH_NAME }}-Development' `
+         #     --project 'newproject-${{ env.BRANCH_NAME }}-dev' `
+         #     --identity-type "SystemAssigned" `
+         #     --roles '{"8e3af657-a8ff-443c-a75c-2fe8c4bcb635":{}}' `
+         #     --deployment-target-id "/subscriptions/${{ secrets.DEVCENTER_SUBID }}" `
+         #     --status Enabled
          
          - name: Create IAC Environment
            uses: azure/powershell@v1
@@ -77,7 +77,7 @@ jobs:
              inlineScript: |
                az devcenter dev environment create `
                --endpoint 'https://54d63bdf-d817-4fa5-a99a-0ec5f32c518c-dc-main-2.westus3.devcenter.azure.com/' `
-               --project-name 'newproject-${{ env.BRANCH_NAME }}-dev' `
-               --environment-name 'dev' --environment-type 'Development' `
-               --environment-definition-name 'envdef-${{ env.BRANCH_NAME }}-dev' `
+               --project-name 'newproject-${{ env.BRANCH_NAME }}-dev' `               
+               --environment-type 'Testing' `
+               --environment-definition-name 'Podcast_Web_App' `
                --catalog-name MainProjects
