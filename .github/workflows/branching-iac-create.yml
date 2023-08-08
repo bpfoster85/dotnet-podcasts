@@ -81,5 +81,5 @@ jobs:
                --catalog-name "MainProjects" `
                --environment-definition-name "Podcast_Web_App" `
                --environment-type "Testing" `
-               --name "newproject-${{ env.BRANCH_NAME }}-devenv"
+               --name "Development"
                
