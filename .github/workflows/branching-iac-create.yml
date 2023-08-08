@@ -57,7 +57,7 @@ jobs:
              inlineScript: |
               az role assignment create --assignee ${{ secrets.DEVCENTER_SERVICEPRINCIPLE_OWNER_ID }} --role "Owner" --scope "/subscriptions/${{ secrets.DEVCENTER_SUBID }}"
          
-         - name: Create Env Type for new Project
+         - name: Create Project for new branch which will allow environments to be built against
            uses: azure/powershell@v1
            with:
              azPSVersion: "3.1.0"
