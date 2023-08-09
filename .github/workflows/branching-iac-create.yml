@@ -68,7 +68,7 @@ jobs:
               --identity-type "SystemAssigned" `
               --environment-type-name "Development" `
               --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
-              --state "Enabled" `
+              --status "Enabled" `
               --resource-group "rg-newproject-${{ env.BRANCH_NAME }}-dev"
 
 
