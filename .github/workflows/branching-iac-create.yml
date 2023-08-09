@@ -57,12 +57,20 @@ jobs:
              inlineScript: |
               az role assignment create --assignee ${{ secrets.DEVCENTER_SERVICEPRINCIPLE_OWNER_ID }} --role "Owner" --scope "/subscriptions/${{ secrets.DEVCENTER_SUBID }}"
          
-         - name: Create Project for new branch which will allow environments to be built against
+         - name: Create Project Environment Type for new branch which will allow environments to be built against
            uses: azure/powershell@v1
            with:
              azPSVersion: "3.1.0"
              inlineScript: |
-              az devcenter admin project-environment-type create               --deployment-target-id  "subscriptions/${{ secrets.DEVCENTER_SUBID }}               --location "westus3"               --identity-type "SystemAssigned"               --environment-type-name "Development"               --project-name "newproject-${{ env.BRANCH_NAME }}-dev"               --state "Enabled"               --resource-group-name "rg-newproject-${{ env.BRANCH_NAME }}-dev" 
+              az devcenter admin project-environment-type create `
+              --deployment-target-id  "subscriptions/${{ secrets.DEVCENTER_SUBID }}" `
+              --location "westus3" `
+              --identity-type "SystemAssigned" `
+              --environment-type-name "Development" `
+              --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
+              --state "Enabled" `
+              --resource-group-name "rg-newproject-${{ env.BRANCH_NAME }}-dev"
+
 
          #This will create an deployed Environments of the project and environment type from above.           
          #- name: Create devCenter Project Env Typ
