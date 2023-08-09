@@ -69,7 +69,7 @@ jobs:
               --environment-type-name "Development" `
               --project-name "newproject-${{ env.BRANCH_NAME }}-dev" `
               --status "Enabled" `
-              --resource-group "rg-newproject-${{ env.BRANCH_NAME }}-dev"
+              --resource-group "rg-developer_landing_zone"
 
 
          #This will create an deployed Environments of the project and environment type from above.           
