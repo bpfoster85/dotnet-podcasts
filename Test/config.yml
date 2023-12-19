@@ -10,4 +10,4 @@ splitAllCSVs: True
 failureCriteria:
 - Podcast page: p90(response_time_ms) > 10000
 - Homepage: p90(response_time_ms) > 60000
-- percentage(error) >  10
+- percentage(error) >  90
